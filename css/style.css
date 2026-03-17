@@ -343,6 +343,17 @@ li {
     margin: 0 auto 10px;
 }
 
+.results-mode-toggle {
+    margin: 10px 0 20px;
+}
+
+.results-mode-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
 /* ————————————————————————
    Ajustes generales para tablas de resultados
    ———————————————————————— */

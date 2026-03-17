@@ -122,6 +122,12 @@
             </section>
 
             <h1><a id="results" href="#top">Results</a></h1>
+            <div class="results-mode-toggle">
+                <label>
+                    <input type="checkbox" id="preview-mode-toggle" checked>
+                    GIF-like autoplay previews
+                </label>
+            </div>
 
             <!-- Voiceover -->
             <section id="overview-video">
@@ -233,41 +239,104 @@
     </div>
 
     <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-        var previewVideos = document.querySelectorAll('video.result-video');
+        document.addEventListener('DOMContentLoaded', function () {
+            var previewVideos = Array.from(document.querySelectorAll('video.result-video'));
+            var previewToggle = document.getElementById('preview-mode-toggle');
+            var modeStorageKey = 'physplatPreviewMode';
+            var observer = null;
 
-        previewVideos.forEach(function (video) {
-            video.removeAttribute('autoplay');
-            video.setAttribute('preload', 'none');
-            video.pause();
-        });
-
-        if (!('IntersectionObserver' in window)) {
-            previewVideos.forEach(function (video) {
-                video.play().catch(function () { });
-            });
-            return;
-        }
-
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                var video = entry.target;
-                if (entry.isIntersecting) {
-                    video.play().catch(function () { });
-                } else {
-                    video.pause();
+            function disconnectObserver() {
+                if (observer) {
+                    observer.disconnect();
+                    observer = null;
                 }
-            });
-        }, {
-            root: null,
-            rootMargin: '200px 0px',
-            threshold: 0.35
-        });
+            }
 
-        previewVideos.forEach(function (video) {
-            observer.observe(video);
+            function connectObserver() {
+                disconnectObserver();
+
+                if (!('IntersectionObserver' in window)) {
+                    previewVideos.forEach(function (video) {
+                        video.play().catch(function () { });
+                    });
+                    return;
+                }
+
+                observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var video = entry.target;
+                        if (entry.isIntersecting) {
+                            video.play().catch(function () { });
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '200px 0px',
+                    threshold: 0.35
+                });
+
+                previewVideos.forEach(function (video) {
+                    observer.observe(video);
+                });
+            }
+
+            function applyGifMode() {
+                previewVideos.forEach(function (video) {
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('muted', '');
+                    video.setAttribute('loop', '');
+                    video.setAttribute('playsinline', '');
+                    video.removeAttribute('controls');
+                    video.setAttribute('preload', 'none');
+                    video.muted = true;
+                    video.loop = true;
+                    video.playsInline = true;
+                });
+
+                connectObserver();
+            }
+
+            function applyNormalMode() {
+                disconnectObserver();
+
+                previewVideos.forEach(function (video) {
+                    video.pause();
+                    video.removeAttribute('autoplay');
+                    video.removeAttribute('muted');
+                    video.removeAttribute('loop');
+                    video.removeAttribute('playsinline');
+                    video.setAttribute('controls', '');
+                    video.setAttribute('preload', 'metadata');
+                    video.muted = false;
+                    video.loop = false;
+                    video.playsInline = false;
+                });
+            }
+
+            function setMode(gifModeEnabled) {
+                if (gifModeEnabled) {
+                    applyGifMode();
+                    localStorage.setItem(modeStorageKey, 'gif');
+                } else {
+                    applyNormalMode();
+                    localStorage.setItem(modeStorageKey, 'normal');
+                }
+            }
+
+            var savedMode = localStorage.getItem(modeStorageKey);
+            var gifMode = savedMode !== 'normal';
+
+            if (previewToggle) {
+                previewToggle.checked = gifMode;
+                previewToggle.addEventListener('change', function () {
+                    setMode(previewToggle.checked);
+                });
+            }
+
+            setMode(gifMode);
         });
-    });
     </script>
 </body>
 
