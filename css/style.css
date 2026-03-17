@@ -332,6 +332,17 @@ li {
     object-fit: contain;
 }
 
+.poster-frame {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 620px;
+    border: 0;
+    margin: 0 auto 10px;
+}
+
 /* ————————————————————————
    Ajustes generales para tablas de resultados
    ———————————————————————— */
