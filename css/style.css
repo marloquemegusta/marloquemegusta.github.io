@@ -324,11 +324,12 @@ li {
 
 .voiceover-video {
     display: block;
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    max-width: 760px;
     height: auto;
-    max-height: none;
+    max-height: 430px;
     margin: 0 auto 10px;
+    object-fit: contain;
 }
 
 /* ————————————————————————
