@@ -322,6 +322,15 @@ li {
     object-fit: contain;
 }
 
+.voiceover-video {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0 auto 10px;
+}
+
 /* ————————————————————————
    Ajustes generales para tablas de resultados
    ———————————————————————— */
