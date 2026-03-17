@@ -337,6 +337,7 @@ li {
 section#results-mesh table,
 section#results-fabric table,
 section#results-environment table,
+section#results-liquid table,
 section#results-robot table,
 section#comparison-videos table,
 section#scene-videos table {
@@ -350,6 +351,7 @@ section#scene-videos table {
 section#results-mesh td,
 section#results-fabric td,
 section#results-environment td,
+section#results-liquid td,
 section#results-robot td,
 section#comparison-videos td,
 section#scene-videos td {
@@ -365,6 +367,7 @@ section#scene-videos td {
 section#results-mesh>h2,
 section#results-fabric>h2,
 section#results-environment>h2,
+section#results-liquid>h2,
 section#results-robot>h2,
 section#comparison-videos>h2,
 section#scene-videos>h2 {
