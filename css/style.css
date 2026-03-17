@@ -325,6 +325,12 @@ li {
 /* ————————————————————————
    Ajustes generales para tablas de resultados
    ———————————————————————— */
+section#results-barro table,
+section#results-liquido table,
+section#results-roca table,
+section#results-tejido table,
+section#results-tronco table,
+section#results-robot table,
 section#comparison-videos table,
 section#scene-videos table {
     margin: 30px auto;
@@ -334,6 +340,12 @@ section#scene-videos table {
     width: 100%;
 }
 
+section#results-barro td,
+section#results-liquido td,
+section#results-roca td,
+section#results-tejido td,
+section#results-tronco td,
+section#results-robot td,
 section#comparison-videos td,
 section#scene-videos td {
     padding: 15px;
@@ -345,6 +357,12 @@ section#scene-videos td {
 /* ————————————————————————
    Títulos de sección (h2) más grandes y con espaciado
    ———————————————————————— */
+section#results-barro>h2,
+section#results-liquido>h2,
+section#results-roca>h2,
+section#results-tejido>h2,
+section#results-tronco>h2,
+section#results-robot>h2,
 section#comparison-videos>h2,
 section#scene-videos>h2 {
     font-size: 1.8em;
@@ -356,6 +374,12 @@ section#scene-videos>h2 {
 /* ————————————————————————
    Subtítulos de cada vídeo (h3) uniformes
    ———————————————————————— */
+section#results-barro h3,
+section#results-liquido h3,
+section#results-roca h3,
+section#results-tejido h3,
+section#results-tronco h3,
+section#results-robot h3,
 section#comparison-videos h3,
 section#scene-videos h3 {
     font-size: 1.2em;
