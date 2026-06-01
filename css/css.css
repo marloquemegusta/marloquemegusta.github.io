@@ -121,6 +121,18 @@ table tr {
 	opacity: 0.8;
 }
 
+.nav-text-link {
+	display: inline-block;
+	padding-top: 15px;
+	margin-right: 10px;
+	color: #AAA;
+	font-size: 14px;
+}
+
+.nav-text-link:hover {
+	color: #FFF;
+}
+
 .nav-social:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
@@ -210,6 +222,30 @@ table tr {
 
 .btn-group .btn-success:hover {
 	background-color: rgba(207, 232, 196, 1);
+}
+
+.text-thumb {
+	width: 159px;
+	min-height: 95px;
+	margin-right: 10px;
+	border: 1px solid #d6e9c6;
+	background-color: rgba(223, 240, 216, 0.3);
+	color: #468847;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	letter-spacing: 0;
+}
+
+.interest-tags span {
+	display: inline-block;
+	margin: 0 6px 8px 0;
+	padding: 4px 8px;
+	border: 1px solid #d6e9c6;
+	background-color: rgba(223, 240, 216, 0.3);
+	color: #468847;
+	font-size: 13px;
 }
 
 /* FI RESEARCH */
