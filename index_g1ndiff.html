@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>G1NDiff: Fast 3D scene editing with reprojection-conditioned GAN-diffusion training on 2D datasets</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="javascript/scroll.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <a id="top"></a>
+    <div id="wrapper">
+        <div id="header">
+            <div id="journal">Computers &amp; Graphics, 2026</div>
+            <div id="title"><a href="" class="nounderline">
+                    <b>G1NDiff: Fast 3D scene editing with reprojection-conditioned GAN-diffusion training on 2D
+                        datasets</b><br>
+                </a></div>
+
+            <table id="authors">
+                <tbody>
+                    <tr>
+                        <td>Ivan Ojeda Martin<span class="super">1</span></td>
+                        <td>Jorge Bustos Sanchez<span class="super">1,2</span></td>
+                        <td>Alessio Mazzucchelli<span class="super">1</span></td>
+                        <td>Mario Alfonso Arsuaga<span class="super">1*</span></td>
+                        <td>Adrian Penate Sanchez<span class="super">1,2</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" id="affiliation">
+                            <span class="super">1</span> Arquimea Research Center (ARC), Tenerife, Spain&nbsp;&nbsp;
+                            <span class="super">2</span> IUSANI, Universidad de Las Palmas de Gran Canaria, Spain
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="imgs/g1ndiff/1-s2.0-S0097849326001019-gr1.jpg" class="nounderline">
+                <img style="width:1100px" class="center" src="imgs/g1ndiff/1-s2.0-S0097849326001019-gr1.jpg"
+                    alt="G1NDiff teaser" id="teaser">
+            </a>
+
+            <table id="navigation">
+                <tbody>
+                    <tr>
+                        <td><a href="#news">News</a></td>
+                        <td><a href="#abstract">Abstract</a></td>
+                        <td><a href="#resources">Resources</a></td>
+                        <td><a href="#results">Results</a></td>
+                        <td><a href="#bibtex">Bibtex</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="content">
+            <h1><a id="news">News</a></h1>
+            <ul>
+                <li><span class="italic">May, 2026</span>: Paper published in <em>Computers &amp; Graphics</em>.</li>
+                <li><span class="italic">Jun 2, 2026</span>: Paper presented at <em>CEIG 2026</em>.</li>
+                <li><span class="italic">Jun, 2026</span>: Project page launched.</li>
+            </ul>
+
+            <h1><a id="abstract" href="#top">Abstract</a></h1>
+            <p>
+                G1NDiff addresses fast text-guided editing of 3D scenes represented with neural rendering and 3D
+                Gaussian Splatting. Instead of repeatedly applying slow multi-step diffusion over many rendered views,
+                the method trains a one-step GAN-diffusion model conditioned on reprojections from the target 3D scene.
+                This makes it possible to transfer edits from 2D datasets to multi-view 3D scene editing while preserving
+                viewpoint consistency across rendered trajectories.
+            </p>
+            <p>
+                The pipeline combines on-the-fly occlusion-aware reprojection, depth-based conditioning, and a
+                multistage dataset update strategy. The resulting edited views are then used to update the underlying 3D
+                representation, producing edits such as material changes, stylization, local object appearance changes,
+                and portrait transformations with reduced per-view drift.
+            </p>
+
+            <h1><a id="resources" href="#top">Resources</a></h1>
+            <ul>
+                <li>[<a target="_blank" href="https://doi.org/10.1016/j.cag.2026.104630">paper</a>] [<a
+                        href="#bibtex">bibtex</a>]</li>
+                <li>[<a target="_blank" href="imgs/g1ndiff/1-s2.0-S0097849326001019-mmc7.pdf">supplementary
+                        material</a>]</li>
+            </ul>
+
+            <h1><a id="results" href="#top">Results</a></h1>
+
+            <section id="comparison-results">
+                <h2>Comparison with Prior Methods</h2>
+                <a href="imgs/g1ndiff/1-s2.0-S0097849326001019-gr4.jpg" class="nounderline">
+                    <img class="center" style="width:1100px" src="imgs/g1ndiff/1-s2.0-S0097849326001019-gr4.jpg"
+                        alt="Comparison with EditSplat, GaussCtrl, and DATE2DGS">
+                </a>
+            </section>
+
+            <section id="video-results">
+                <h2>Multi-View Editing Videos</h2>
+                <div class="results-mode-toggle">
+                    <label>
+                        <input type="checkbox" id="preview-mode-toggle" checked>
+                        GIF-like autoplay previews
+                    </label>
+                </div>
+                <table style="width:100%; text-align:center; border-collapse:collapse; margin:20px 0;">
+                    <tr>
+                        <td>
+                            <h3>Robot Bear</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc1.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <h3>Marble Sculpture</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc2.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <h3>Dragon Eyes</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc3.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Van Gogh Style</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc4.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <h3>Terrazzo Table</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc5.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                        <td>
+                            <h3>Full-Body Edit</h3>
+                            <video autoplay muted loop playsinline class="result-video">
+                                <source src="videos/g1ndiff/1-s2.0-S0097849326001019-mmc6.mp4" type="video/mp4">
+                            </video>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <h1><a id="bibtex" href="#top">Bibtex</a></h1>
+            <div id="bibtexsec">
+                <pre>@article{ojeda2026g1ndiff,
+  title={G1NDiff: Fast 3D scene editing with reprojection-conditioned GAN-diffusion training on 2D datasets},
+  author={Ojeda Martin, Ivan and Bustos Sanchez, Jorge and Mazzucchelli, Alessio and Alfonso Arsuaga, Mario and Penate Sanchez, Adrian},
+  journal={Computers \& Graphics},
+  pages={104630},
+  year={2026},
+  publisher={Elsevier},
+  doi={10.1016/j.cag.2026.104630}
+}</pre>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var previewVideos = Array.from(document.querySelectorAll('video.result-video'));
+            var previewToggle = document.getElementById('preview-mode-toggle');
+            var modeStorageKey = 'g1ndiffPreviewMode';
+            var observer = null;
+
+            function disconnectObserver() {
+                if (observer) {
+                    observer.disconnect();
+                    observer = null;
+                }
+            }
+
+            function connectObserver() {
+                disconnectObserver();
+
+                if (!('IntersectionObserver' in window)) {
+                    previewVideos.forEach(function (video) {
+                        video.play().catch(function () { });
+                    });
+                    return;
+                }
+
+                observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var video = entry.target;
+                        if (entry.isIntersecting) {
+                            video.play().catch(function () { });
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '200px 0px',
+                    threshold: 0.35
+                });
+
+                previewVideos.forEach(function (video) {
+                    observer.observe(video);
+                });
+            }
+
+            function applyGifMode() {
+                previewVideos.forEach(function (video) {
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('muted', '');
+                    video.setAttribute('loop', '');
+                    video.setAttribute('playsinline', '');
+                    video.removeAttribute('controls');
+                    video.setAttribute('preload', 'none');
+                    video.muted = true;
+                    video.loop = true;
+                    video.playsInline = true;
+                });
+
+                connectObserver();
+            }
+
+            function applyNormalMode() {
+                disconnectObserver();
+
+                previewVideos.forEach(function (video) {
+                    video.pause();
+                    video.removeAttribute('autoplay');
+                    video.removeAttribute('muted');
+                    video.removeAttribute('loop');
+                    video.removeAttribute('playsinline');
+                    video.setAttribute('controls', '');
+                    video.setAttribute('preload', 'metadata');
+                    video.muted = false;
+                    video.loop = false;
+                    video.playsInline = false;
+                });
+            }
+
+            function setMode(gifModeEnabled) {
+                if (gifModeEnabled) {
+                    applyGifMode();
+                    localStorage.setItem(modeStorageKey, 'gif');
+                } else {
+                    applyNormalMode();
+                    localStorage.setItem(modeStorageKey, 'normal');
+                }
+            }
+
+            var savedMode = localStorage.getItem(modeStorageKey);
+            var gifMode = savedMode !== 'normal';
+
+            if (previewToggle) {
+                previewToggle.checked = gifMode;
+                previewToggle.addEventListener('change', function () {
+                    setMode(previewToggle.checked);
+                });
+            }
+
+            setMode(gifMode);
+        });
+    </script>
+</body>
+
+</html>
