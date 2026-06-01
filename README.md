@@ -1,7 +1,12 @@
 # Mario Alfonso Arsuaga personal website
 
-Static personal academic/technical website built with plain HTML, CSS, Bootstrap, and a small amount of JavaScript.
-There is no build step: GitHub Pages can serve the repository root directly.
+This repository contains the current version of my personal academic and technical website:
+
+https://marloquemegusta.github.io/
+
+It is the continued personal version of my previous website, now maintained under my personal GitHub account.
+
+The site is intentionally simple: plain HTML, CSS, Bootstrap, and a small amount of JavaScript. There is no build step.
 
 ## Local preview
 
@@ -20,38 +25,6 @@ Then visit `http://localhost:8000/`.
 - `css/`, `javascript/`: site styles and scripts.
 - `imgs/`, `gifs/`, `videos/`: media assets.
 
-All internal assets and project pages use relative paths, so the site can be deployed either at a GitHub Pages root
-domain or as a project page.
+## Deployment
 
-## Recommended migration
-
-Preferred destination:
-
-- Repository: `marloquemegusta.github.io`
-- URL: `https://marloquemegusta.github.io/`
-
-This is the cleanest option because the current site does not require a project-page base path such as
-`/marioalfonsoarsuaga/`.
-
-Suggested migration commands:
-
-```powershell
-git remote rename origin old-origin
-git remote add origin https://github.com/marloquemegusta/marloquemegusta.github.io.git
-git push -u origin main
-```
-
-Then configure GitHub Pages in the new repository:
-
-- Source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/ (root)`
-
-Keep the old `malfonsoarquimea/marioalfonsoarsuaga` deployment unchanged until the new URL has been tested.
-After validation, the old repository can serve a simple redirect page to `https://marloquemegusta.github.io/`.
-
-## Migration notes
-
-- Canonical URL in `index.html` points to `https://marloquemegusta.github.io/`.
-- Public links were updated to emphasize the personal GitHub identity `marloquemegusta`.
-- No framework migration was performed; the site remains a lightweight static website.
+The site is served with GitHub Pages from the `main` branch and repository root.
